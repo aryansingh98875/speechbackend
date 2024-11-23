@@ -1,6 +1,6 @@
 import express from 'express'
 // import cors from 'cors'
-// import db from './lib/db';
+import db from './lib/db';
 const app = express();
 // app.use(express.json());
 // app.use(cors());
@@ -30,12 +30,12 @@ app.get('/',(req,res)=>{
     })
 })
 
-// app.get('/users',async (req,res)=>{
-//     const users=await db.student.count();
-//     res.json({
-//         count:users
-//     })
-// })
+app.get('/users',async (req,res)=>{
+    const users=await db.student.count();
+    res.json({
+        count:users
+    })
+})
 
 app.listen(port,()=>{
     console.log(`Server running on ${port}`);
